@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: INFO
+    ru.wilix.testrestfulltasksservice: INFO
+
+# Необходимо для отображения message при выбрасывании ResponseStatusException
+server.error.include-message: always
+
+spring:
+  application.name: test-restfull-tasks-service
+
+  # Стандартный профиль
+  profiles.active: inMemory
+
+  # Выключаем тк не работает с базой данных
+  liquibase.enabled: false
