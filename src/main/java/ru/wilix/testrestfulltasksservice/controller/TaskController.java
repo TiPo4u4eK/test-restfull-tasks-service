@@ -11,20 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import ru.wilix.testrestfulltasksservice.controller.dto.EntityMapper;
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.PageInfo;
-import ru.wilix.testrestfulltasksservice.controller.dto.TaskDTO;
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.PageInfo;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
+import ru.wilix.testrestfulltasksservice.model.dto.TaskDTO;
+import ru.wilix.testrestfulltasksservice.model.rest.messages.MessageRestResponse;
 import ru.wilix.testrestfulltasksservice.service.TaskService;
+import ru.wilix.testrestfulltasksservice.utils.EntityMapper;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
 import java.util.stream.Collectors;
 
-import static ru.wilix.testrestfulltasksservice.controller.dto.EntityMapper.taskFromDTO;
-import static ru.wilix.testrestfulltasksservice.controller.dto.EntityMapper.taskToDTO;
+import static ru.wilix.testrestfulltasksservice.utils.EntityMapper.taskFromDTO;
+import static ru.wilix.testrestfulltasksservice.utils.EntityMapper.taskToDTO;
 
 /**
  * REST-контроллер отвечающий за работу над задачами

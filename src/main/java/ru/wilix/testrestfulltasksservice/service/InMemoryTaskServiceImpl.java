@@ -2,9 +2,9 @@ package ru.wilix.testrestfulltasksservice.service;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.PageInfo;
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.PageInfo;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
 
 import java.util.Comparator;
 import java.util.Date;
@@ -21,12 +21,12 @@ import java.util.stream.Collectors;
 @Profile("inMemory")
 public class InMemoryTaskServiceImpl implements TaskService {
 
-    private final AtomicLong customSequence = new AtomicLong(0);
+    private final AtomicLong identifierSequence = new AtomicLong(0);
     private final Map<Long, Task> tasksMap = new ConcurrentHashMap<>();
 
     @Override
     public void createTask(Task task) {
-        task.setId(customSequence.incrementAndGet());
+        task.setId(identifierSequence.incrementAndGet());
         task.setModificationDate(new Date());
 
         tasksMap.put(task.getId(), task);

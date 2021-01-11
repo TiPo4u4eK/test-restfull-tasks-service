@@ -1,6 +1,7 @@
-package ru.wilix.testrestfulltasksservice.controller.dto;
+package ru.wilix.testrestfulltasksservice.utils;
 
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
+import ru.wilix.testrestfulltasksservice.model.dto.TaskDTO;
 
 /**
  * Отвечает за преобразование сущностей из/в DTO

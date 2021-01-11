@@ -1,4 +1,4 @@
-package ru.wilix.testrestfulltasksservice.controller;
+package ru.wilix.testrestfulltasksservice.model.rest.messages;
 
 /**
  * Обёртка для текстовых ответов REST

@@ -4,9 +4,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Service;
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.PageInfo;
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.PageInfo;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,10 +51,8 @@ public class DatabaseTaskServiceImpl implements TaskService {
 
     @Override
     public void updateTask(Task task) {
-        task.setModificationDate(new Date());
-
         template.update("UPDATE tasks SET name = ?, description = ?, modification_date = ? WHERE id = ?",
-                task.getName(), task.getDescription(), task.getModificationDate(), task.getId());
+                task.getName(), task.getDescription(), new Date(), task.getId());
     }
 
     @Override
@@ -81,7 +79,7 @@ public class DatabaseTaskServiceImpl implements TaskService {
     }
 
     /**
-     * Получает сущность {@link ru.wilix.testrestfulltasksservice.model.Task} из колонок ResultSet
+     * Получает сущность {@link Task} из колонок ResultSet
      */
     private Task taskMapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Task(

@@ -1,22 +1,22 @@
-package ru.wilix.testrestfulltasksservice.model;
+package ru.wilix.testrestfulltasksservice.model.dto;
 
+import org.springframework.lang.Nullable;
+
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.Objects;
 
-/**
- * Сущность задачи
- */
-public class Task {
+public class TaskDTO {
 
+    @Nullable
     private Long id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String description;
+    @Nullable
     private Date modificationDate;
 
-    public Task() {
-    }
-
-    public Task(Long id, String name, String description, Date modificationDate) {
+    public TaskDTO(Long id, String name, String description, Date modificationDate) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -53,21 +53,6 @@ public class Task {
 
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return Objects.equals(id, task.id) &&
-                Objects.equals(name, task.name) &&
-                Objects.equals(description, task.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, modificationDate);
     }
 
 }

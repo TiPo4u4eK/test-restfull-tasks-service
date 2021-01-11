@@ -9,8 +9,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.wilix.testrestfulltasksservice.AbstractTest;
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.TaskDTO;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.dto.TaskDTO;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;

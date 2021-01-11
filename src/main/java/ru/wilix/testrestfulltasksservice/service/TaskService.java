@@ -1,11 +1,11 @@
 package ru.wilix.testrestfulltasksservice.service;
 
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.PageInfo;
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.PageInfo;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
 
 /**
- * Отвечает за работу с сущностями {@link ru.wilix.testrestfulltasksservice.model.Task}
+ * Отвечает за работу с сущностями {@link Task}
  */
 public interface TaskService {
 

@@ -1,10 +1,12 @@
 package ru.wilix.testrestfulltasksservice.service;
 
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.wilix.testrestfulltasksservice.controller.dto.Page;
-import ru.wilix.testrestfulltasksservice.controller.dto.PageInfo;
-import ru.wilix.testrestfulltasksservice.model.Task;
+import ru.wilix.testrestfulltasksservice.AbstractTest;
+import ru.wilix.testrestfulltasksservice.model.Page;
+import ru.wilix.testrestfulltasksservice.model.PageInfo;
+import ru.wilix.testrestfulltasksservice.model.domain.Task;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -15,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Класс отвечающий за тесты над {@link ru.wilix.testrestfulltasksservice.service.TaskService},
  * Необходим для использования единой реализации тестов при разных активных профилях
  */
-public class TasksServiceTests {
+public abstract class TasksServiceTests extends AbstractTest {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(TasksServiceTests.class);
 
@@ -25,6 +27,7 @@ public class TasksServiceTests {
         this.service = service;
     }
 
+    @Test
     public void whenTaskCreatedThenIdIsSetTest() {
         Task task = getSimpleTask();
         service.createTask(task);
@@ -34,6 +37,7 @@ public class TasksServiceTests {
         printTestPassed("whenTaskCreatedThenIdIsSetTest");
     }
 
+    @Test
     public void whenTaskUpdatedThenEqualsTest() {
         Task expected = getSimpleTask();
         service.createTask(expected);
@@ -50,6 +54,7 @@ public class TasksServiceTests {
         printTestPassed("whenTaskUpdatedThenEqualsTest");
     }
 
+    @Test
     public void whenTaskDeletedThenCheckTest() {
         Task task = getSimpleTask();
 
@@ -66,6 +71,7 @@ public class TasksServiceTests {
         printTestPassed("whenTaskDeletedThenCheckTest");
     }
 
+    @Test
     public void findAllTasksTest() {
         service.createTask(getSimpleTask());
         service.createTask(getSimpleTask());
@@ -82,6 +88,7 @@ public class TasksServiceTests {
         printTestPassed("findAllTasksTest");
     }
 
+    @Test
     public void existsCheckTest() {
         Task task = getSimpleTask();
         service.createTask(task);

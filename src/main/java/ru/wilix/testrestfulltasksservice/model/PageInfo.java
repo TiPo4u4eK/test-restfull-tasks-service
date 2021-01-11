@@ -1,4 +1,4 @@
-package ru.wilix.testrestfulltasksservice.controller.dto;
+package ru.wilix.testrestfulltasksservice.model;
 
 /**
  * Информация о пагинации
